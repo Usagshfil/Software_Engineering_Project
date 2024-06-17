@@ -51,6 +51,13 @@ if(isset($_SESSION['login_id'])){
 		start_load()
 		if($(this).find('.alert-danger').length > 0 )
 			$(this).find('.alert-danger').remove();
+			var name = $(this).find('input[name="name"]').val();
+			if(name.length < 3) {
+				//alert('Name is too short. It should be at least 3 characters long.');
+				$('#signup-frm').prepend('<div class="alert alert-danger">Name is too short. It should be at least 3 characters long.</div>')
+				end_load()
+				return;
+			}
 		$.ajax({
 			url:'admin/ajax.php?action=signup',
 			method:'POST',
