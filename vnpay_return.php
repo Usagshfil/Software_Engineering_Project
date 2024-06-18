@@ -1,22 +1,3 @@
-<?php session_start() ?>
-<script>
-		$.ajax({
-			url:'admin/ajax.php?action=save_order',
-			method:'POST',
-			data:$(this).serialize(),
-			error:err=>{
-				console.log(err)
-			},
-			success:function(resp){
-				if(resp == 1){
-					alert_toast('Order successfully submitted.',"success");
-					setTimeout(function(){
-						location.reload()
-					},750)
-				}
-			}
-		})
-</script>
 <!DOCTYPE html>
 <html lang="en">
     <head>
